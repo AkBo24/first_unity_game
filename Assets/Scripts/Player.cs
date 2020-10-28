@@ -31,14 +31,14 @@ public class Player : MonoBehaviour {
     //Called once every physics update
     private void FixedUpdate() {
         
-        rigidbodyComponent.velocity = new Vector3(horizontalInput,rigidbodyComponent.velocity.y,0); 
+        rigidbodyComponent.velocity = new Vector3(horizontalInput*2,rigidbodyComponent.velocity.y,0); 
 
         if(Physics.OverlapSphere(groundCheckTransform.position, 0.1f, playerMask).Length == 0)
             return;
 
 
         if( jumpKeyPressed ) {
-           rigidbodyComponent.AddForce(Vector3.up*4, ForceMode.VelocityChange);
+           rigidbodyComponent.AddForce(Vector3.up*5, ForceMode.VelocityChange);
             jumpKeyPressed = false;
         }
 
